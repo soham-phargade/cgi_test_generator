@@ -1,34 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Synthetic Data Generator</title>
+    <meta charset="UTF-8">
+    <title>Synthetic CSV Generator</title>
 </head>
 <body>
-    <input type="text" id="promptInput" placeholder="Enter prompt for synthetic data" />
-    <button onclick="generateCSV()">Generate CSV</button>
-
-    <script>
-        function generateCSV() {
-            const prompt = document.getElementById('promptInput').value;
-            fetch('/api/generate-csv', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ prompt }),
-            })
-            .then(response => response.blob())
-            .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = "synthetic-data.csv";
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    </script>
+    <input type="file" id="csvFileInput" accept=".csv">
+    <button id="uploadBtn">Upload and Process CSV</button>
+    <script src="script.js"></script>
 </body>
 </html>
