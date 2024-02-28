@@ -1,5 +1,5 @@
 // Import the necessary OpenAI SDK components
-const { Configuration, OpenAIApi } = require("openai");
+const { Configuration, OpenAIApi } = require('openai');
 
 // The main function that handles incoming requests
 module.exports = async (req, res) => {
